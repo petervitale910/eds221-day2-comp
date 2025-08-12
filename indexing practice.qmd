@@ -156,3 +156,66 @@ fruit[3,1]
 fruit[2,1] <- "pineapple" #makes that change
 ```
 
+# Select multiple elements
+```{r}
+x <- 1:10
+x[c(3,1,5)]
+x[c(1.2, 5.4, 7.2)]
+```
+
+# Exclude Elements
+With negative nums
+```{r}
+x[-10]
+x[-c(2,4,6,8,10)]
+#cant mix positive and negative
+x[c(-1,2)]
+```
+With logical vectors
+```{r}
+x[c(TRUE, FALSE, FALSE, TRUE, TRUE,TRUE, FALSE, FALSE, TRUE, TRUE )]
+
+x[x>3]
+
+```
+
+#Subsetting with assigning multiple values
+```{r}
+x <- 1:5
+x[c(1,2)] <- 2:3; x
+#can also use negative integers
+
+x[-1] <- 4:1; x
+
+
+```
+
+#Subset rows in data frames based on conditions (*logical subsetting*)
+using mtcars
+
+```{r}
+mtcars[mtcars$gear ==5,]
+```
+conditional based on multiple columns
+
+```{r}
+mtcars[mtcars$gear == 5 & mtcars$cyl == 4, ]
+```
+
+can use base R subset
+```{r}
+subset(mtcars, gear == 5 & cyl == 4)
+```
+
+# Remove columns
+
+```{r}
+df <- data.frame(x = 1:3, y = 3:1, z = letters[1:3]);df
+
+df$z <- NULL; df
+
+df <-  df[c ("x", "y")];df
+
+df[setdiff(names(df),"z")]
+```
+
