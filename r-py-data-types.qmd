@@ -1,0 +1,158 @@
+---
+title: "r-py-data-types"
+format: html
+editor: visual
+---
+
+#### Making and indexing in R
+Character vector
+```{r}
+
+dogs <- c("teddy", "korra", "waffle", "banjo");dogs
+
+class(dogs)
+
+typeof(dogs)
+```
+
+Numeric vector
+```{r}
+weights <-  c(50, 55, 25, 35)
+
+class(weights)
+typeof(weights)
+```
+
+Integer Vector
+
+```{r}
+dog_age <-  c(5L,6L,1L,7L)
+
+class(dog_age)
+typeof(dog_age)
+```
+Check with Logic
+```{r}
+is.numeric(dog_age)
+```
+
+###Combining classes 
+
+Creating mixed vector 
+
+```{r}
+dog_info <- c ("teddy", 50, 5L); dog_info
+typeof(dog_info)
+
+class(dog_info)
+
+is.character(dog_info)
+
+```
+Vectors with named elements
+
+```{r}
+dog_food <-  c(teddy = "purina", korra = "alpo", waffle = "fancy feast", banjo = "blue diamond"); dog_food
+ 
+typeof(dog_food)
+
+
+```
+
+#### Accessing bits of vectors
+
+```{r}
+#[] is the convention in R
+dog_food[2]
+
+dog_food["korra"]
+
+dog_food[1:3]
+```
+
+Car Example
+
+```{r}
+cars <- c("red", "orange", "white", "blue", "green", "silver", "black")
+
+
+i <- 4
+
+cars[i]
+
+#can overwrite data
+dog_food[1] <- "BURRRITOS";dog_food
+``` 
+
+#Matrices
+
+```{r}
+fish_size <- matrix(c(.8, 1.2, .4, .9), ncol = 2, nrow = 2, byrow = FALSE);fish_size
+
+typeof(fish_size)
+
+class(fish_size)
+```
+
+multiple data types
+
+```{r}
+dog_walk <- matrix(c("teddy", 5, "korra", 10), ncol = 2, nrow = 2, byrow = FALSE); dog_walk
+
+class(dog_walk)
+
+typeof(dog_walk)
+```
+
+accessing pieces of matrices
+
+```{r}
+fish_size[1,2] #first row second column
+
+fish_size[,2]
+fish_size[1,]
+```
+
+#### Lists
+
+```{r}
+urchins <- list("blue",
+                c(1,2,3),
+                c("a cat", "a dog"),
+                5L); urchins
+```
+
+Accesing peices of a list
+
+```{r}
+urchins[[2]] #indexing into elements of vectors
+
+urchins[2] #indexing into vector
+
+```
+
+# Naming lists
+
+```{r}
+tacos <- list(topping = c("onion", "cilantro", "guacamole"), filling =c ("beans", "meat", "veggie"), practice = c(6.75, 8.25, 9.50))
+
+
+```
+
+#Data frames
+```{r}
+fruit <-data.frame(type = c("apple", "banana", "peach"), mass = c(130, 195, 150))
+
+class(fruit)
+```
+
+grabbing elements
+
+```{r}
+fruit[1,2]
+
+fruit[3,1]
+
+fruit[2,1] <- "pineapple" #makes that change
+```
+
